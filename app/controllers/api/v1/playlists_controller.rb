@@ -23,16 +23,17 @@ module Api
             end
         end
 
-        Private
-
-        def format_album_json(playlist)
-          {
-            id: playlist.id,
-            name: playlist.name,
-            user_id: playlist.user_id,
-            created_at: playlist.created_at,
-            updated_at: playlist.updated_at,
-          }
+        # def format_album_json(playlist)
+        #   {
+        #     id: playlist.id,
+        #     name: playlist.name,
+        #     user_id: playlist.user_id,
+        #     created_at: playlist.created_at,
+        #     updated_at: playlist.updated_at,
+        #   }
+        # end
+        def playlist_params
+          params.require(:playlist).permit(:name, :user_id)
         end
       end
     end
